@@ -8,7 +8,6 @@ import arrowNext from '../../assets/img/arrow-next-white.png'
 
 export default function Slider({ slides }) {
 
-
     const [current, setCurrent] = useState(0);
     const length = slides.length;
 
@@ -26,20 +25,24 @@ export default function Slider({ slides }) {
 
     return (
         <section className='slider'>
-            <img src={arrowPrev} alt="prevSlide" className='arrow-prev' onClick={prevSlide} />
-            <img src={arrowNext} alt="nextSlide" className='arrow-next' onClick={nextSlide} />
-            {slides.map((slide, index) => {
-                return (
-                    <div
-                        className={index === current ? 'slide active' : 'slide'}
-                        key={index}
-                    >
-                        {index === current && (
-                            <img src={slide} alt='travel image' className='image' />
-                        )}
-                    </div>
-                );
-            })}
+            <img src={arrowPrev} alt="prevSlide" className='arrow arrow__prev' onClick={prevSlide} />
+            <div className="slides">
+                {slides.map((slide, index) => {
+                    return (
+                        <div
+                            className={index === current ? 'slide active' : 'slide'}
+                            key={index}
+                        >
+                            {index === current && (
+                                <img src={slide} alt='travel image' className='image' onClick={nextSlide} />
+                            )}
+                        </div>
+                    );
+                })}
+
+            </div>
+            <img src={arrowNext} alt="nextSlide" className='arrow arrow__next' onClick={nextSlide} />
+
         </section>
 
     )

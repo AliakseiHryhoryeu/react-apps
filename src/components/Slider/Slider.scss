@@ -1,47 +1,47 @@
 .slider {
-    position: relative;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  max-width: 100vw;
+  height: 100vh;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.arrow {
+  position: absolute;
+  font-size: 3rem;
+  color: #000;
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+  background: rgba(0, 0, 0, 0.1);
+  padding: 20px 10px;
+  &__prev {
+    left: 0;
   }
-  
-  .image {
-    width: 1000px;
-    height: 600px;
-    border-radius: 10px;
+  &__next {
+    right: 0;
   }
-  
-  .next-arrow {
-    position: absolute;
-    top: 50%;
-    right: 32px;
-    font-size: 3rem;
-    color: #000;
-    z-index: 10;
-    cursor: pointer;
-    user-select: none;
-  }
-  
-  .prev-arrow {
-    position: absolute;
-    top: 50%;
-    left: 32px;
-    font-size: 3rem;
-    color: #000;
-    z-index: 10;
-    cursor: pointer;
-    user-select: none;
-  }
-  
-  .slide {
-    opacity: 0;
-    transition-duration: 1s ease;
-  }
-  
-  .slide.active {
-    opacity: 1;
-    transition-duration: 1s;
-    transform: scale(1.08);
-  }
-  
+}
+
+.slide {
+  opacity: 0;
+  transform: translate(100px);
+
+  transition-duration: 0.5s ease;
+}
+
+.slide.active {
+  opacity: 1;
+  transition-duration: 1s;
+  cursor: pointer;
+  transform: translate(0, 0);
+}
