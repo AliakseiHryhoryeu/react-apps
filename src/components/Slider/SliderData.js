@@ -1,36 +1,26 @@
-import img1 from '../../assets/img/cat-1.jpg'
-import img2 from '../../assets/img/cat-2.jpg'
-import img3 from '../../assets/img/cat-3.jpg'
-import img4 from '../../assets/img/cat-4.jpg'
-import img5 from '../../assets/img/cat-5.jpg'
-import img6 from '../../assets/img/cat-6.jpg'
-import img7 from '../../assets/img/cat-7.jpg'
-import img8 from '../../assets/img/cat-8.jpg'
-
 export const SliderData = [
   {
-    image:{img1}
+    image: 'https://i.imgur.com/pR6HcmM.jpg'
   },
   {
-    image:{img2}
+    image: 'https://i.imgur.com/W2yzGj3.jpg'
   },
   {
-    image:{img3}
+    image: 'https://i.imgur.com/ADp497i.jpg'
   },
   {
-    image:{img4}
+    image: 'https://i.imgur.com/kCjC3jd.jpg'
   },
   {
-    image:{img5}
+    image: 'https://i.imgur.com/UMGI1qC.jpg'
   },
   {
-    image:{img6}
+    image: 'https://i.imgur.com/g8MKQA1.jpg'
   },
   {
-    image:{img7}
+    image: 'https://i.imgur.com/NeWtH7M.jpg'
   },
   {
-    image:{img8}
-  }
-  ];
-  
+    image: 'https://i.imgur.com/LWBWPKK.jpg'
+  },
+];
