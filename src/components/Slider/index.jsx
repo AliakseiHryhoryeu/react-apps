@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 
-import { SliderData } from './SliderData'
 import './Slider.scss'
 
 import arrowPrev from '../../assets/img/arrow-prev-white.png'
 import arrowNext from '../../assets/img/arrow-next-white.png'
+
 
 export default function Slider({ slides }) {
 
@@ -26,16 +26,16 @@ export default function Slider({ slides }) {
 
     return (
         <section className='slider'>
-            <img src={arrowPrev} alt="prevSlide" className='prev-arrow' onClick={prevSlide} />
-            <img src={arrowNext} alt="nextSlide" className='next-arrow' onClick={nextSlide} />
-            {SliderData.map((slide, index) => {
+            <img src={arrowPrev} alt="prevSlide" className='arrow-prev' onClick={prevSlide} />
+            <img src={arrowNext} alt="nextSlide" className='arrow-next' onClick={nextSlide} />
+            {slides.map((slide, index) => {
                 return (
                     <div
                         className={index === current ? 'slide active' : 'slide'}
                         key={index}
                     >
                         {index === current && (
-                            <img src={slide.image} alt='travel image' className='image' />
+                            <img src={slide} alt='travel image' className='image' />
                         )}
                     </div>
                 );
