@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
 
 import { SliderData } from './SliderData'
+import './Slider.scss'
 
 import arrowPrev from '../../assets/img/arrow-prev-white.png'
 import arrowNext from '../../assets/img/arrow-next-white.png'
-
-import './Slider.scss'
 
 export default function Slider({ slides }) {
 
@@ -24,7 +23,6 @@ export default function Slider({ slides }) {
     if (!Array.isArray(slides) || slides.length <= 0) {
         return null;
     }
-
 
     return (
         <section className='slider'>
