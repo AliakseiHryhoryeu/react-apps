@@ -34,7 +34,7 @@ export default function Slider({ slides }) {
                             key={index}
                         >
                             {index === current && (
-                                <img src={slide} alt='slide item' className='slide__item' onClick={nextSlide} />
+                                <img src={slide} className='slide__item' onClick={nextSlide} />
                             )}
                         </div>
                     );
