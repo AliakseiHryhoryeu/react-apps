@@ -1,180 +1,112 @@
-const path = require('path')
-const HTMLWebpackPlugin = require('html-webpack-plugin')
-const {CleanWebpackPlugin} = require('clean-webpack-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const OptimizeCssAssetWebpackPlugin = require('optimize-css-assets-webpack-plugin')
-const TerserWebpackPlugin = require('terser-webpack-plugin')
-const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer')
+const path = require('path')                                                          // Absolute path to the folder
+const HTMLWebpackPlugin = require('html-webpack-plugin')                              // Create index.html and add in him links to scripts 
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')                        // Delete previous builds
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')                       // Optimize css
+const OptimizeCssAssetWebpackPlugin = require('optimize-css-assets-webpack-plugin')   // Optimize html css js
+const TerserWebpackPlugin = require('terser-webpack-plugin')                          // Optimize html css js
 
-const isDev = process.env.NODE_ENV === 'development'
+const isDev = process.env.NODE_ENV === 'development'              // mode in which to collect build
 const isProd = !isDev
 
 const optimization = () => {
   const config = {
     splitChunks: {
       chunks: 'all'
-    }
+    },
+    runtimeChunk: 'single'
   }
-
-  if (isProd) {
+  if (isProd) { // minimize html css js
     config.minimizer = [
       new OptimizeCssAssetWebpackPlugin(),
       new TerserWebpackPlugin()
     ]
   }
-
   return config
 }
 
-const filename = ext => isDev ? `[name].${ext}` : `[name].[hash].${ext}`
-
-const cssLoaders = extra => {
-  const loaders = [
-    {
-      loader: MiniCssExtractPlugin.loader,
-      options: {
-        hmr: isDev,
-        reloadAll: true
-      },
-    },
-    'css-loader'
-  ]
-
-  if (extra) {
-    loaders.push(extra)
-  }
-
-  return loaders
-}
-
-const babelOptions = preset => {
-  const opts = {
-    presets: [
-      '@babel/preset-env'
-    ],
+const babelOptions = (preset) => {
+  const options = {
+    presets: ['@babel/preset-env'],
     plugins: [
       '@babel/plugin-proposal-class-properties'
     ]
   }
-
   if (preset) {
-    opts.presets.push(preset)
+    options.presets.push(preset)
   }
-
-  return opts
+  return options
 }
 
-
-const jsLoaders = () => {
-  const loaders = [{
-    loader: 'babel-loader',
-    options: babelOptions()
-  }]
-
-  if (isDev) {
-    loaders.push('eslint-loader')
-  }
-
-  return loaders
-}
-
-const plugins = () => {
-  const base = [
-    new HTMLWebpackPlugin({
-      template: './index.html',
-      minify: {
-        collapseWhitespace: isProd
-      }
-    }),
-    new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin({
-      filename: filename('css')
-    })
-  ]
-
-  if (isProd) {
-    base.push(new BundleAnalyzerPlugin())
-  }
-
-  return base
-}
 
 module.exports = {
-  context: path.resolve(__dirname, 'src'),
-  mode: 'development',
-  entry: {
-    main: ['@babel/polyfill', './index.js']
-  },
+  context: path.resolve(__dirname, "src"),
+  mode: "development", // operating mode webpack
+  entry: ['@babel/polyfill', './index.jsx'], // entry file
   output: {
-    filename: filename('js'),
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, "dist"),  // path to final build folder
+    filename: "[name].[hash].js" // how to name files
   },
   resolve: {
-    extensions: ['.js', '.json', '.png'],
+    extensions: ['.js', '.jsx', '.png'], // default types which Webpack looks for first if no extension is specified
     alias: {
-      '@models': path.resolve(__dirname, 'src/models'),
-      '@': path.resolve(__dirname, 'src'),
+      '@img': path.resolve(__dirname, "src/assets/img"),
+      '@': path.resolve(__dirname, "src")
     }
   },
   optimization: optimization(),
   devServer: {
-    port: 3000,
+    port: 4000,
     hot: isDev
   },
-  devtool: isDev ? 'source-map' : '',
-  plugins: plugins(),
+  devtool: isProd ? false : 'source-map',
+  plugins: [
+    new HTMLWebpackPlugin({ // create index.html and add in him links to scripts
+      template: "./index.html",
+      favicon: "./favicon.ico",
+      minify: {
+        collapseWhitespace: isProd
+      }
+    }),
+    new CleanWebpackPlugin(), // cleaning from previous builds
+    new MiniCssExtractPlugin({
+      filename: '[name].[hash].css'
+    })
+  ],
   module: {
-    rules: [
+    rules: [ // types of processed files and their loaders
       {
-        test: /\.css$/,
-        use: cssLoaders()
+        test: /\.m?js$/, // JavaScript
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: babelOptions()
+        }
       },
       {
-        test: /\.less$/,
-        use: cssLoaders('less-loader')
+        test: /\.jsx$/, // ReactJS
+        exclude: /node_modules/,
+        use: [{
+          loader: 'babel-loader',
+          options: babelOptions('@babel/preset-react')
+        }]
       },
       {
-        test: /\.s[ac]ss$/,
-        use: cssLoaders('sass-loader')
+        test: /\.(sa|sc|c)ss$/, //sass scss css
+        use: [
+          isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
+          'css-loader',
+          'postcss-loader',
+          'sass-loader'
+        ],
       },
       {
-        test: /\.(png|jpg|svg|gif)$/,
-        use: ['file-loader']
+        test: /\.(png|jpg|svg|gif|webp)$/, // Images
+        type: 'asset/resource' // webpack v5+
       },
       {
         test: /\.(ttf|woff|woff2|eot)$/,
         use: ['file-loader']
       },
-      {
-        test: /\.xml$/,
-        use: ['xml-loader']
-      },
-      {
-        test: /\.csv$/,
-        use: ['csv-loader']
-      },
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: jsLoaders()
-      },
-      {
-        test: /\.ts$/,
-        exclude: /node_modules/,
-        loader: {
-          loader: 'babel-loader',
-          options: babelOptions('@babel/preset-typescript')
-        }
-      },
-      {
-        test: /\.jsx$/,
-        exclude: /node_modules/,
-        loader: {
-          loader: 'babel-loader',
-          options: babelOptions('@babel/preset-react')
-        }
-      }
     ]
   }
 }
