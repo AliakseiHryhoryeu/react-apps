@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 
 import './Slider.scss'
 
-import arrowPrev from '../../assets/img/arrow-prev-white.png'
-import arrowNext from '../../assets/img/arrow-next-white.png'
+import arrowPrev from '@img/arrow-prev-white.png'
+import arrowNext from '@img/arrow-next-white.png'
 
 
 export default function Slider({ slides }) {
