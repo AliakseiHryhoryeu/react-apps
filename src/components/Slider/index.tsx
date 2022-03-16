@@ -1,12 +1,23 @@
-import React, { useState } from 'react'
+import React, { useState, FC } from 'react'
 
 import './Slider.scss'
 
 import arrowPrev from '@img/arrow-prev-white.png'
 import arrowNext from '@img/arrow-next-white.png'
 
+import img1 from '@img/cat-1.jpg';
+import img2 from '@img/cat-2.jpg';
+import img3 from '@img/cat-3.jpg';
+import img4 from '@img/cat-4.jpg';
+import img5 from '@img/cat-5.jpg';
+import img6 from '@img/cat-6.jpg';
+import img7 from '@img/cat-7.jpg';
+import img8 from '@img/cat-8.jpg';
 
-export default function Slider({ slides }) {
+
+const Slider:FC=()=> {
+
+    const slides:string[] = [img1, img2, img3, img4, img5, img6, img7, img8]
 
     const [current, setCurrent] = useState(0);
     const length = slides.length;
@@ -47,4 +58,6 @@ export default function Slider({ slides }) {
 
     )
 }
+
+export default Slider
 
