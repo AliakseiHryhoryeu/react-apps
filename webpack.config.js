@@ -41,16 +41,17 @@ const babelOptions = (preset) => {
 module.exports = {
   context: path.resolve(__dirname, "src"),
   mode: "development",
-  entry: ['@babel/polyfill', './index.tsx'],
+  entry: ['@babel/polyfill', './main.tsx'],
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].[hash].js"
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx', '.png'],
+    extensions: ['.ts', '.tsx', '.js'],
     alias: {
-      '@img': path.resolve(__dirname, "src/assets/img"),
-      '@': path.resolve(__dirname, "src")
+      src: path.resolve(__dirname, "src"),
+      assets: path.resolve(__dirname, "src/assets"),
+      app: path.resolve(__dirname, "src/app"),
     }
   },
   optimization: optimization(),
@@ -61,8 +62,8 @@ module.exports = {
   devtool: isProd ? false : 'source-map',
   plugins: [
     new HTMLWebpackPlugin({
-      template: "./index.html",
-      favicon: "./favicon.ico",
+      template: "assets/html/index.html",
+      favicon: "assets/html/favicon.ico",
       minify: {
         collapseWhitespace: isProd
       }
@@ -75,25 +76,11 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.m?js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: babelOptions()
-        }
-      },
-      {
-        test: /\.jsx$/,
-        exclude: /node_modules/,
-        use: [{
-          loader: 'babel-loader',
-          options: babelOptions('@babel/preset-react')
-        }]
-      },
-      {
         test: /\.tsx?$/,
         exclude: /node_modules/,
-        use: 'ts-loader',
+        use: [{
+          loader: 'ts-loader'
+        }]
       },
       {
         test: /\.(sa|sc|c)ss$/,
@@ -111,10 +98,7 @@ module.exports = {
             name: 'assets/[name].[ext]',
         }
       },
-      {
-        test: /\.(ttf|woff|woff2|eot)$/,
-        use: ['file-loader']
-      },
+
     ]
   }
 }
