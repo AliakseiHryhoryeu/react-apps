@@ -1,6 +1,7 @@
-## React Slider
-### In this project i develop responsive Slider using ReactJS, in this project i use:
+## React Sliders
+### In this project i develop 3 responsive Slider using ReactJS, in this project i use:
  + TypeScript
+ + ReactJS
  + SCSS
  + Webpack
 
