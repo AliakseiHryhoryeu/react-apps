@@ -9,6 +9,7 @@ import arrowRight from 'assets/img/arrow-next-white.png'
 import './CardSlider.scss'
 
 export const CardSlider: FC = () => {
+
   const [slideConter, setSlideCounter] = useState(1)
 
   const changeSlideHandlerArrows = (number: number) => {

@@ -4,8 +4,10 @@
  + ReactJS
  + SCSS
  + Webpack
+ + FontAwesome
+ + React-router
 
 ## Web site
-https://react-slider-rose.vercel.app/
+https://react-sliders-rose.vercel.app/
 
 ![React Slider](/preview.png)
