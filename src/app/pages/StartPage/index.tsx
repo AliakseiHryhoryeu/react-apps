@@ -1,11 +1,11 @@
 import React, { FC } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-
-import './StartPage.scss'
+import { useNavigate } from 'react-router-dom'
 
 import cardBg from 'assets/img/startpage/card-bg.png'
 import doubleBg from 'assets/img/startpage/double-bg.png'
 import sliderBg from 'assets/img/startpage/slider-bg.png'
+
+import './StartPage.scss'
 
 export const StartPage: FC = () => {
     const navigate = useNavigate()
