@@ -1,0 +1,269 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #e5e5e5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-top: 5rem;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0;
+}
+
+/* Header styles start */
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background: #edebff;
+  max-height: 35px;
+}
+
+.header_wrapper {
+  width: 1200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.header__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.header__item {
+  margin-right: 20px;
+}
+
+.header__menu_contacts {
+  padding-left: auto;
+}
+
+.header__nav_menu_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+/* Header styles end */
+/* Task styles start */
+.tasks {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #d7d2fe;
+  min-height: 100vh;
+  height: 100%;
+}
+
+.task_wrapper {
+  width: 1200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.add_task {
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+
+.add_task .add_task_title {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  font-weight: 600;
+  line-height: 25px;
+  font-size: 25px;
+  color: #5543db;
+  padding-bottom: 20px;
+}
+
+.add_task .add_task_input {
+  font-weight: 300;
+  line-height: 25px;
+  font-size: 25px;
+  border: #eee 0px;
+  border-radius: 25px;
+  height: 50px;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+.add_task .add_task_button {
+  font-weight: 300;
+  line-height: 25px;
+  font-size: 25px;
+  border: #eee 0px;
+  border-radius: 25px;
+  height: 50px;
+  margin-bottom: 20px;
+  min-width: 25%;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.row {
+  width: 1200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.col-header {
+  width: 150px;
+  -webkit-box-shadow: 4px 4px 9px rgba(198, 198, 198, 0.36);
+          box-shadow: 4px 4px 9px rgba(198, 198, 198, 0.36);
+  border-radius: 20px;
+  padding: 0.8rem 1rem;
+  color: #fff;
+}
+
+.item {
+  width: 150px;
+  height: 66px;
+  border: 1px solid #eee;
+  -webkit-box-shadow: 4px 4px 9px rgba(198, 198, 198, 0.36);
+          box-shadow: 4px 4px 9px rgba(198, 198, 198, 0.36);
+  border-radius: 20px;
+  background: #f7f6f7;
+  padding: 0.8rem 1rem;
+  color: #828282;
+  text-align: center;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+.item .active {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+
+/* Task styles end */
+.placeholder {
+  width: 150px;
+  height: 66px;
+}
+
+.start {
+  background: linear-gradient(69deg, #f2de19 0%, #f1ef14 50%, #f1dc14 98%);
+}
+
+.inDev {
+  background: linear-gradient(69deg, #e23fdb 0%, #c346be 50%, #d95dd4 98%);
+}
+
+.inQa {
+  background: linear-gradient(69deg, #4662c3 0%, #4648c3 50%, #466ae8 98%);
+}
+
+.done {
+  background: linear-gradient(69deg, #46c9e8 38%, #2ccff5 100%);
+}
+
+.hold {
+  border: 5px solid #eee;
+}
+
+.hide {
+  display: none;
+}
+
+.hovered {
+  background: rgba(84, 58, 232, 0.3);
+}
+
+.hovered_garbage {
+  background: #df3a69;
+}
+
+/* Garbage styles start */
+.garbage {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.garbage .placeholder_garbage {
+  max-height: 200px;
+  padding: 50px;
+}
+
+.garbage .placeholder_garbage div {
+  display: none;
+}
+
+/* Garbage styles end */
+/*# sourceMappingURL=styles.css.map */

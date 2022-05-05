@@ -1,0 +1,193 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #e5e5e5;
+  display: flex;
+  padding-top: 5rem;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+}
+
+/* Header styles start */
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background: rgb(237,235,255);
+  max-height: 35px;
+
+}
+.header_wrapper{
+  width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__list {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+}
+.header__item {
+  margin-right: 20px;
+}
+.header__menu_contacts {
+  padding-left: auto;
+}
+.header__nav_menu_container{
+display: flex;
+flex-direction: row;
+}
+
+/* Header styles end */
+
+/* Task styles start */
+
+.tasks{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(215,210,254);
+min-height: 100vh;
+height: 100%;
+}
+.task_wrapper {
+  width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.add_task{
+  align-content: center;
+  justify-content: center;
+  margin-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  .add_task_title{
+    align-self: center;
+    font-weight: 600;
+    line-height: 25px;
+    font-size: 25px;
+    color: rgb(85,67,219);
+    padding-bottom: 20px;
+  }
+  .add_task_input{
+    font-weight: 300;
+    line-height: 25px;
+    font-size: 25px;
+    border: #eee 0px;
+    border-radius: 25px;    
+    height: 50px;
+    margin-bottom: 20px;
+    padding: 20px;
+  }
+  .add_task_button{
+    font-weight: 300;
+    line-height: 25px;
+    font-size: 25px;
+    border: #eee 0px;
+    border-radius: 25px;    
+    height: 50px;
+    margin-bottom: 20px;
+    min-width: 25%;
+    
+    align-self: center;
+  }
+}
+
+.row {
+  width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.col-header {
+  width: 150px;
+  box-shadow: 4px 4px 9px rgba(198, 198, 198, 0.36);
+  border-radius: 20px;
+  padding: 0.8rem 1rem;
+  color: #fff;
+}
+
+.item {
+  width: 150px;
+  height: 66px;
+  border: 1px solid #eee;
+  box-shadow: 4px 4px 9px rgba(198, 198, 198, 0.36);
+  border-radius: 20px;
+  background: #f7f6f7;
+  padding: 0.8rem 1rem;
+  color: #828282;
+  text-align: center;
+  cursor: grab;
+  .active {
+    cursor: grabbing;
+  }
+}
+
+/* Task styles end */
+
+
+.placeholder {
+  width: 150px;
+  height: 66px;
+}
+
+.start {
+  background: linear-gradient(69deg, rgba(242,222,25,1) 0%, rgba(241,239,20,1) 50%, rgba(241,220,20,1) 98%);
+}
+
+.inDev {
+  background: linear-gradient(69deg, rgba(226,63,219,1) 0%, rgba(195,70,190,1) 50%, rgba(217,93,212,1) 98%);}
+
+.inQa {
+  background: linear-gradient(69deg, rgba(70,98,195,1) 0%, rgba(70,72,195,1) 50%, rgba(70,106,232,1) 98%);}
+
+.done {
+  background: linear-gradient(69deg, rgba(70,201,232,1) 38%, rgba(44,207,245,1) 100%);}
+
+.hold {
+  // border: 5px solid #eee;
+  border: 5px solid #eee;
+}
+.hide {
+  display: none;
+}
+.hovered {
+  background: rgba(84, 58, 232, 0.3);
+}
+
+.hovered_garbage {
+  background: rgb(223,58,105);
+}
+/* Garbage styles start */
+
+.garbage{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  .placeholder_garbage{
+    max-height: 200px;
+    padding: 50px;
+    div{
+      display: none;
+    }
+  }
+}
+
+/* Garbage styles end */
