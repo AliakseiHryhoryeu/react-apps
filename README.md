@@ -1,13 +1,17 @@
 ## React Sliders
-### In this project i develop 3 responsive Slider using ReactJS, in this project i use:
- + TypeScript
- + ReactJS
- + SCSS
- + Webpack
- + FontAwesome
- + React-router
+
++ ReactJS
++ NextJS
++ MaterialUI
++ TypeScript
++ SCSS
++ Webpack
++ Figma
 
 ## Web site
 https://react-sliders-rose.vercel.app/
 
-![React Slider](/preview.png)
+## Figma
+https://www.figma.com/file/KEi1fudDOGDrT7sz3QhEKF
+
+![react-mini-apps](/preview.png)
