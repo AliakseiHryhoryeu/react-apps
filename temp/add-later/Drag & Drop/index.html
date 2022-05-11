@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="reset.css" />
+  <title>Drag & Drop</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+  <div class="header">
+    <div class="header_wrapper">
+      <div class="header__nav_menu_container">
+        <ul class="header__list">
+          <li class="header__item">
+            <a href="" class="header__link">Цены</a>
+          </li>
+          <li class="header__item">
+            <a href="" class="header__link">О нас</a>
+          </li>
+          <li class="header__item">
+            <a href="" class="header__link">Отзывы</a>
+          </li>
+          <li class="header__item">
+            <a href="" class="header__link">Вопросы</a>
+          </li>
+          <li class="header__item">
+            <a href="" class="header__link">Контакты</a>
+          </li>
+        </ul>
+      </div>
+      <div class="header__nav_singin_container">
+        <ul class="header__menu_contacts">
+          <li class="sing_in">
+            <img class="header__menu_img" src="./img/Sing_in.png" alt="#" />
+            <a href="" class="header__link">Регистрация</a>
+          </li>
+          <li class="sing_in">
+            <img class="header__menu_img" src="./img/Sing_in.png" alt="#" />
+            <a href="" class="header__link">Войти</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="tasks">
+    <div class="task_wrapper">
+      <div class="add_task">
+        <p class="add_task_title">Add your task</p>
+        <input type="text" class="add_task_input">
+        <button class="add_task_button">Add</button>
+
+      </div>
+
+      <div class="row">
+        <div class="col-header start">Planned</div>
+        <div class="col-header inDev">In dev</div>
+        <div class="col-header inQa">QA</div>
+        <div class="col-header done">Done</div>
+      </div>
+
+      <div class="row">
+        <div class="placeholder placeholderPlanned">
+          <div class="item" draggable="true">Move me</div>
+          <div class="item" draggable="true">Move me</div>
+        </div>
+        <div class="placeholder placeholderInDev"></div>
+        <div class="placeholder placeholderQA"></div>
+        <div class="placeholder placeholderDone"></div>
+      </div>
+
+
+
+    </div>
+    <div class="garbage">
+        <img draggable="false" class="placeholder_garbage" src="./img/garbage_icon.png" alt="">
+    </div>
+  </div>
+
+
+
+
+  <script src="script.js"></script>
+</body>
+
+</html>

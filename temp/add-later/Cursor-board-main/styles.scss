@@ -1,0 +1,33 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+  }
+  .container{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: 500px;
+      flex-wrap: wrap;
+      background: no-repeat center/100% url("https://ae01.alicdn.com/kf/HTB1ZUXlQXXXXXaLXFXXq6xXFXXXk/-.jpg_q50.jpg");
+  }
+
+  .square{
+      width: 50px;
+      height: 50px;
+      background: #1d1d1d;
+      box-shadow: 0 0 2px #000;
+      transition: 2s ease;
+
+  }
+  .square:hover{
+      transition-duration: 0s;
+  }
