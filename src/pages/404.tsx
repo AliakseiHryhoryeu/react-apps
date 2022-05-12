@@ -1,19 +1,12 @@
-import { FC } from "react";
-import { useEffect } from "react";
+import { useEffect,FC } from "react";
 
 import Head from "next/head";
 import { useRouter } from "next/router";
 
-import styles from "common/styles/404.module.scss"
+import styles from "src/styles/404.module.scss"
 
 const Error:FC = () => {
-  const router = useRouter()
-  useEffect(() => {
-    setTimeout(() => {
-      router.push('/')
 
-    }, 4000)
-  }, [router])
   
   return (
     <div className={styles.wrapper}>

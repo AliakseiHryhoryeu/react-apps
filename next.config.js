@@ -1,56 +1,17 @@
-const {
-  PHASE_DEVELOPMENT_SERVER,
-  PHASE_PRODUCTION_BUILD,
-} = require('next/constants')
+/* eslint-disable import/no-extraneous-dependencies */
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+});
 
-const getBuildConfig = () => {
-  const path = require('path')
-  const postcssPresetEnv = require('postcss-preset-env')
-  const postcssPresetEnvOptions = {
-    features: {
-      'custom-media-queries': true,
-      'custom-selectors': true,
-    },
-  }
-
-  const cssOptions = {
-    postcssLoaderOptions: {
-      plugins: [postcssPresetEnv(postcssPresetEnvOptions)],
-    },
-    sassOptions: {
-      includePaths: [path.join(process.cwd(), 'src', 'common','components', 'styles')],
-    },
-  }
-
-  const nextConfig = {
-    ...cssOptions,
-    webpack(config) {
-      config.module.rules.push({
-        test: /\.svg$/,
-        include: path.join(process.cwd(), 'src', 'common', 'common/img','styles', 'icons'),
-        use: [
-          'svg-sprite-loader',
-          {
-            loader: 'svgo-loader',
-            options: {
-              plugins: [
-                { removeAttrs: { attrs: '(fill)' } },
-                { removeTitle: true },
-                { cleanupIDs: true },
-                { removeStyleElement: true },
-              ],
-            },
-          },
-        ],
-      })
-      return config
-    },
-  }
-  return nextConfig
-}
-
-module.exports = (phase) => {
-  const shouldAddBuildConfig =
-    phase === PHASE_DEVELOPMENT_SERVER || phase === PHASE_PRODUCTION_BUILD
-  return shouldAddBuildConfig ? getBuildConfig() : {}
-}
+module.exports = withBundleAnalyzer({
+  eslint: {
+    dirs: ['.'],
+  },
+  poweredByHeader: false,
+  trailingSlash: true,
+  basePath: '',
+  // The starter code load resources from `public` folder with `router.basePath` in React components.
+  // So, the source code is "basePath-ready".
+  // You can remove `basePath` if you don't need it.
+  reactStrictMode: true,
+});
