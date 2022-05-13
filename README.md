@@ -1,11 +1,10 @@
 ## React Sliders
 
 + ReactJS
++ Redux
 + NextJS
-+ MaterialUI
 + TypeScript
-+ SCSS
-+ Webpack
++ MaterialUI
 + Figma
 
 ## Web site

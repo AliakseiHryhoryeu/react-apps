@@ -10,9 +10,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Head>
         <Meta/>
       </Head>
-      <main>
         <Component {...pageProps} />
-      </main>
     </Layout>
 
   )
