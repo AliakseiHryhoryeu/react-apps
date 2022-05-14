@@ -7,8 +7,21 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Icon, Stack } from '@mui/material';
 import Image from "next/image";
+import { useRouter } from 'next/router'
+import styles from 'src/styles/Header.module.scss'
+
+import Link from 'next/link'
+
 
 export const Header = () => {
+
+  const navigation = [
+    { id: 1, title: "Home", path: "/" },
+    { id: 2, title: "Sliders", path: "/sliders" },
+    { id: 3, title: "Mini-games", path: "/games" },
+  ]
+
+  const { pathname } = useRouter()
 
   return (
     <header >
@@ -17,17 +30,26 @@ export const Header = () => {
           <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
             <MenuIcon />
           </IconButton>
-          <Icon sx={{ mr: 1 }}>
-            <Image
-              src="/static/logo-white.svg"
-              alt="logo"
-              width={24}
-              height={24}
-            />
-          </Icon>
-          <Typography variant="h6" color="inherit" component="div">
-            React-apps
-          </Typography>
+
+
+          <Link key={Date.now()+'logo'} href="/" passHref >
+            <Icon sx={{ pr: 1, cursor: 'pointer' }}>
+              <Image
+                src="/static/logo-white.svg"
+                alt="logo"
+                width={24}
+                height={24}
+              />
+            </Icon>
+          </Link>
+
+          <Link key={Date.now()+'title'} href="/" passHref >
+            <Typography variant="h6" color="inherit" component="div" sx={{ cursor: 'pointer' }}>
+              React-apps
+            </Typography>
+          </Link>
+
+
           <Box
             sx={{
               display: 'flex',
@@ -40,17 +62,20 @@ export const Header = () => {
               spacing={7}
             >
               <Typography variant="h6" color="inherit" component="div"
-                sx={{ cursor: 'pointer', borderBottom: '1px solid #FFFFFF' }}>
+                sx={{ cursor: 'pointer', }}>
                 Home
               </Typography>
               <Typography variant="h6" color="inherit" component="div"
                 sx={{ cursor: 'pointer' }}>
                 Mini-games
               </Typography>
-              <Typography variant="h6" color="inherit" component="div"
-                sx={{ cursor: 'pointer' }}>
-                Sliders
-              </Typography>
+
+              <Link key={Date.now()} href="/" passHref>
+                <Typography variant="h6" color="inherit" component="div" className={styles.active}
+                  sx={{ cursor: 'pointer' }}>
+                  Sliders
+                </Typography>
+              </Link>
             </Stack>
 
           </Box>
@@ -61,3 +86,15 @@ export const Header = () => {
   );
 }
 
+
+
+
+
+  // <Link href={`/posts/${id}`}>{title}</Link>
+
+
+//                 {navigation.map(({ id, title, path }) => (
+//                     <Link key={id} href={path} >
+//                         <a className={pathname === path ? styles.active : null}>{title}</a>
+//                     </Link>
+//                 ))}
