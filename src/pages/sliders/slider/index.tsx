@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import classNames from 'classnames'
-import slyles from 'src/styles/Slider.module.scss'
+import styles from 'src/styles/Slider.module.scss'
 
 function Slider() {
 
@@ -34,8 +34,8 @@ function Slider() {
 
 
   return (
-    <div className={slyles.slider}>
-      <img src={arrows.arrowPrev} alt="prevSlide" className={classNames(slyles.arrow, slyles.arrow__prev)} onClick={prevSlide} />
+    <div className={styles.slider}>
+      <img src={arrows.arrowPrev} alt="prevSlide" className={classNames(styles.arrow, styles.arrow__prev)} onClick={prevSlide} />
       <div className="slides">
         {slides.map((slide, index) => {
           return (
@@ -51,7 +51,7 @@ function Slider() {
         })}
 
       </div>
-      <img src={arrows.arrowNext} alt="nextSlide" className={classNames(slyles.arrow, slyles.arrow__next)} onClick={nextSlide} />
+      <img src={arrows.arrowNext} alt="nextSlide" className={classNames(styles.arrow, styles.arrow__next)} onClick={nextSlide} />
 
     </div>
   )
