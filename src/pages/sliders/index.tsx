@@ -7,8 +7,8 @@ import { Box, Typography } from "@mui/material";
 function Sliders() {
     const navigation = [
         { id: 1, title: "Slider", image: '/static/sliders/slider-preview.png', path: "/sliders/slider" },
-        { id: 2, title: "Double Slider", image: '/static/sliders/double-slider-preview.png', path: "/sliders/card-slider" },
-        { id: 3, title: "Card Slider", image: '/static/sliders/card-slider-preview.png', path: "/sliders/double-slider" },
+        { id: 2, title: "Double Slider", image: '/static/sliders/double-slider-preview.png', path: "/sliders/double-slider" },
+        { id: 3, title: "Card Slider", image: '/static/sliders/card-slider-preview.png', path: "/sliders/card-slider" },
     ]
 
 
