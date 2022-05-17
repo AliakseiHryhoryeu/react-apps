@@ -32,7 +32,7 @@ export const Header = () => {
           </IconButton>
 
 
-          <Link key={Date.now()+'logo'} href="/" passHref >
+          <Link key={Date.now() + 'logo'} href="/" passHref >
             <Icon sx={{ pr: 1, cursor: 'pointer' }}>
               <Image
                 src="/static/logo-white.svg"
@@ -43,7 +43,7 @@ export const Header = () => {
             </Icon>
           </Link>
 
-          <Link key={Date.now()+'title'} href="/" passHref >
+          <Link key={Date.now() + 'title'} href="/" passHref >
             <Typography variant="h6" color="inherit" component="div" sx={{ cursor: 'pointer' }}>
               React-apps
             </Typography>
@@ -61,21 +61,17 @@ export const Header = () => {
               direction="row"
               spacing={7}
             >
-              <Typography variant="h6" color="inherit" component="div"
-                sx={{ cursor: 'pointer', }}>
-                Home
-              </Typography>
-              <Typography variant="h6" color="inherit" component="div"
-                sx={{ cursor: 'pointer' }}>
-                Mini-games
-              </Typography>
 
-              <Link key={Date.now()} href="/" passHref>
-                <Typography variant="h6" color="inherit" component="div" className={styles.active}
-                  sx={{ cursor: 'pointer' }}>
-                  Sliders
-                </Typography>
-              </Link>
+              {navigation.map(({ id, title, path }) => (
+                <Link key={id} href={path} passHref>
+                  <Typography variant="h6" color="inherit" component="div"
+                    className={pathname === path ? styles.active : null}
+                    sx={{ cursor: 'pointer' }}>
+                    {title}
+                  </Typography>
+                </Link>
+
+              ))}
             </Stack>
 
           </Box>
@@ -83,18 +79,10 @@ export const Header = () => {
 
       </AppBar>
     </header>
-  );
+  )
 }
-
-
-
 
 
   // <Link href={`/posts/${id}`}>{title}</Link>
 
-
-//                 {navigation.map(({ id, title, path }) => (
-//                     <Link key={id} href={path} >
-//                         <a className={pathname === path ? styles.active : null}>{title}</a>
-//                     </Link>
 //                 ))}

@@ -4,18 +4,17 @@ import Image from "next/image"
 import Link from 'next/link'
 import { Box, Typography } from "@mui/material";
 
-function Sliders() {
+function Games() {
     const navigation = [
-        { id: 1, title: "Slider", image: '/static/sliders/slider-preview.png', path: "/sliders/slider" },
-        { id: 2, title: "Double Slider", image: '/static/sliders/double-slider-preview.png', path: "/sliders/card-slider" },
-        { id: 3, title: "Card Slider", image: '/static/sliders/card-slider-preview.png', path: "/sliders/double-slider" },
+        { id: 1, title: "Tasks-board", image: '/static/home/sliders-bg.jpg', path: "/sliders" },
+        { id: 2, title: "Aim Game", image: '/static/home/mini-games-bg.webp', path: "/card-slider" },
+        { id: 3, title: "Cursor Board", image: '/static/home/mini-games-bg.webp', path: "/double-slider" },
     ]
-
 
     return (
         <>
             <Head>
-                <title>Sliders</title>
+                <title>Mini-games</title>
             </Head>
             <Box
                 sx={{
@@ -32,7 +31,7 @@ function Sliders() {
                             sx={{
                                 background: `center / cover  no-repeat url(${image})`,
                                 display: 'flex',
-                                height: '31%',
+                                height: '30%',
                                 justifyContent: 'center',
                                 alignItems: 'center',
                                 cursor: 'pointer'
@@ -52,8 +51,9 @@ function Sliders() {
                 ))}
             </Box>
 
+
         </>
     )
 }
 
-export default Sliders
+export default Games

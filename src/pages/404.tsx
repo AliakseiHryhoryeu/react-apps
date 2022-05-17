@@ -7,6 +7,13 @@ import styles from "src/styles/404.module.scss"
 
 const Error:FC = () => {
 
+  const router = useRouter()
+  useEffect(() => {
+    setTimeout(() => {
+      router.push('/')
+
+    }, 4000)
+  }, [router])
   
   return (
     <div className={styles.wrapper}>
