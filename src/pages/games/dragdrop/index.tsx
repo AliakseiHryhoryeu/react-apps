@@ -1,77 +1,143 @@
 import React from 'react'
+import classNames from 'classnames'
+import styles from 'src/styles/Dragdrop.module.scss'
+
+
+interface ITask {
+  id: number,
+  title: string,
+  category: string
+}
 
 function DragDrop() {
+  const categories = {
+    Plan: 'PLAN',
+    InDev: 'INDEV',
+    QA: 'QA',
+    Done: 'DONE',
+  }
+  const tasks: ITask[] = [
+    { id: 1, title: 'Move me1', category: categories.Plan },
+    { id: 2, title: 'Move me2', category: categories.InDev },
+    { id: 3, title: 'Move me3', category: categories.QA },
+    { id: 4, title: 'Move me4', category: categories.Done },
+  ]
+  const filterTasks = (category: string) => {
+
+    return tasks.filter(task => task.category === category)
+  }
   return (
-    <div>
-<div className="header">
-    <div className="header_wrapper">
-      <div className="header__nav_menu_container">
-        <ul className="header__list">
-          <li className="header__item">
-            <a href="" className="header__link">Цены</a>
-          </li>
-          <li className="header__item">
-            <a href="" className="header__link">О нас</a>
-          </li>
-          <li className="header__item">
-            <a href="" className="header__link">Отзывы</a>
-          </li>
-          <li className="header__item">
-            <a href="" className="header__link">Вопросы</a>
-          </li>
-          <li className="header__item">
-            <a href="" className="header__link">Контакты</a>
-          </li>
-        </ul>
-      </div>
-      <div className="header__nav_singin_container">
-        <ul className="header__menu_contacts">
-          <li className="sing_in">
-            <img className="header__menu_img" src="./img/Sing_in.png" alt="#" />
-            <a href="" className="header__link">Регистрация</a>
-          </li>
-          <li className="sing_in">
-            <img className="header__menu_img" src="./img/Sing_in.png" alt="#" />
-            <a href="" className="header__link">Войти</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div className="tasks">
-    <div className="task_wrapper">
-      <div className="add_task">
-        <p className="add_task_title">Add your task</p>
-        <input type="text" className="add_task_input" />
-        <button className="add_task_button">Add</button>
 
-      </div>
+    <div className={styles.tasks}>
+      <div className={styles.task_wrapper}>
+        <div className={styles.add_task}>
+          <p className={styles.add_task_title}>Add your task</p>
+          <input type="text" className={styles.add_task_input} />
+          <button className={styles.add_task_button}>Add</button>
 
-      <div className="row">
-        <div className="col-header start">Planned</div>
-        <div className="col-header inDev">In dev</div>
-        <div className="col-header inQa">QA</div>
-        <div className="col-header done">Done</div>
-      </div>
-
-      <div className="row">
-        <div className="placeholder placeholderPlanned">
-          <div className="item" draggable="true">Move me</div>
-          <div className="item" draggable="true">Move me</div>
         </div>
-        <div className="placeholder placeholderInDev"></div>
-        <div className="placeholder placeholderQA"></div>
-        <div className="placeholder placeholderDone"></div>
+
+        <div className={styles.row}>
+          <div className={classNames(styles.colHeader, styles.Plan)}>Planned</div>
+          <div className={classNames(styles.colHeader, styles.inDev)}>In dev</div>
+          <div className={classNames(styles.colHeader, styles.QA)}>QA</div>
+          <div className={classNames(styles.colHeader, styles.Done)}>Done</div>
+        </div>
+
+        <div className={styles.row}>
+          <div className={classNames(styles.placeholder, styles.placeholderPlanned)}>
+
+            {filterTasks(categories.Plan).map(({ id, title }) => (
+              <div key={id} className={styles.item} draggable="true">{title}</div>
+            ))}
+          </div>
+
+          <div className={classNames(styles.placeholder, styles.placeholderInDev)}></div>
+          <div className={classNames(styles.placeholder, styles.placeholderQA)}></div>
+          <div className={classNames(styles.placeholder, styles.placeholderDone)}></div>
+        </div>
+
+
+
       </div>
-
-
-
+      <div className={styles.garbage}>
+        <img draggable="false" className={styles.placeholder_garbage} src="./img/garbage_icon.png" alt="" />
+      </div>
     </div>
-    <div className="garbage">
-        <img draggable="false" className="placeholder_garbage" src="./img/garbage_icon.png" alt="" />
-    </div>
-  </div>    </div>
   )
 }
 
 export default DragDrop
+
+
+
+// const item = document.querySelectorAll('.item')
+// const placeholders = document.querySelectorAll('.placeholder')
+// const placeholders_garbage = document.querySelectorAll('.garbage')
+// const addTaskBtn = document.querySelector('.add_task_button')
+// const placeholderPlanned = document.querySelector('.placeholderPlanned')
+
+// addTaskBtn.addEventListener('click',addTask )
+
+// item.forEach(element => {
+//     element.addEventListener('dragstart', dragstart)
+//     element.addEventListener('dragend', dragend)
+// });
+
+// for(const placeholder of placeholders){
+//     placeholder.addEventListener('dragover', dragover)
+//     placeholder.addEventListener('dragenter', dragenter)
+//     placeholder.addEventListener('dragleave', dragleave)
+//     placeholder.addEventListener('drop', dragdrop)
+// }
+
+// for(const placeholder_garbage of placeholders_garbage){
+//     placeholder_garbage.addEventListener('dragover', dragover)
+//     placeholder_garbage.addEventListener('dragenter', dragenter_garbage)
+//     placeholder_garbage.addEventListener('dragleave', dragleave_garbage)
+//     placeholder_garbage.addEventListener('drop', dragdrop_garbage)
+// }
+
+// function addTask(){
+//     let taskInput = document.querySelector('.add_task_input')
+// if(taskInput.value !==""){
+//     placeholderPlanned.insertAdjacentHTML('beforeend',`<div class="item" draggable="true">${taskInput.value}</div>`)
+// }
+// }
+
+
+// function dragstart(event){
+//     event.target.classList.add('hold')
+//     setTimeout(()=>event.target.classList.add('hide'),0)
+// }
+
+// function dragend(event){
+//     event.target.className = 'item'
+// }
+
+// function dragover(event){
+// event.preventDefault()
+
+// }
+// function dragenter(event){
+//     event.target.classList.add('hovered')
+// }
+// function dragenter_garbage(event){
+//     event.target.classList.add('hovered_garbage')
+// }
+
+// function dragleave(event){
+//     event.target.classList.remove('hovered')
+// }
+// function dragleave_garbage(event){
+//     event.target.classList.remove('hovered_garbage')
+// }
+
+// function dragdrop(event){
+//     event.target.classList.remove('hovered')
+//     event.target.append(item)
+// }
+// function dragdrop_garbage(event){
+//     event.target.classList.remove('hovered_garbage')
+//     event.target.append(item)
+// }
