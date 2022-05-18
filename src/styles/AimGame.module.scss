@@ -1,10 +1,5 @@
-@import url("https://fonts.googleapis.com/css?family=Khula&display=swap");
-* {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
 
-body {
+.gameContent {
   color: #fff;
   font-family: 'Khula', sans-serif;
   height: 100vh;
@@ -13,23 +8,22 @@ body {
   text-align: center;
 }
 
-a {
+
+.start {
+  font-size: 1.5rem;
   color: #fff;
   text-decoration: none;
   -webkit-transition: 0.2s;
   transition: 0.2s;
+
 }
 
-a:hover {
+.start:hover{
   color: #FF185B;
   text-shadow: 0 0 10px #770303;
 }
 
-.start {
-  font-size: 1.5rem;
-}
-
-h1 {
+.title {
   line-height: 1.4;
   font-size: 4rem;
 }
@@ -60,7 +54,7 @@ h1 {
   margin-top: -100vh;
 }
 
-.time-list {
+.timeList {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -73,11 +67,11 @@ h1 {
   padding: 0;
 }
 
-.time-list li {
+.timeList li {
   margin: 10px;
 }
 
-.time-btn {
+.timeBtn {
   background-color: transparent;
   border: 2px solid #C0C0C0;
   color: #fff;
@@ -89,7 +83,7 @@ h1 {
   transition: 0.2s;
 }
 
-.time-btn:hover {
+.timeBtn:hover {
   border: 2px solid #FF185B;
   color: #FF185B;
 }
@@ -135,4 +129,3 @@ h1 {
   -webkit-transition: all 1s linear;
   transition: all 1s linear;
 }
-/*# sourceMappingURL=styles.css.map */

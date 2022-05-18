@@ -1,9 +1,9 @@
 import React from 'react'
 
-function CursorBoard() {
+const CursorBoard = () => {
   return (
-    <div>
-        CursorBoard
+    <div className="container" id="board">
+      cursor board
     </div>
   )
 }

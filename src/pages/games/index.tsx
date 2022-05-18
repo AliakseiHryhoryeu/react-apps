@@ -6,8 +6,8 @@ import { Box, Typography } from "@mui/material";
 function Games() {
     const navigation = [
         { id: 1, title: "Tasks-board", image: '/static/home/sliders-bg.jpg', path: "/games/dragdrop" },
-        { id: 2, title: "Aim Game", image: '/static/home/mini-games-bg.webp', path: "/games/aimgame" },
-        { id: 3, title: "Cursor Board", image: '/static/home/mini-games-bg.webp', path: "/games/cursorboard" },
+        { id: 2, title: "Aim Game", image: '/static/games/aim-game-preview.png', path: "/games/aimgame" },
+        { id: 3, title: "Cursor Board", image: '/static/games/board-preview.png', path: "/games/cursorboard" },
     ]
 
     return (
@@ -30,7 +30,7 @@ function Games() {
                             sx={{
                                 background: `center / cover  no-repeat url(${image})`,
                                 display: 'flex',
-                                height: '30%',
+                                height: '31%',
                                 justifyContent: 'center',
                                 alignItems: 'center',
                                 cursor: 'pointer'
