@@ -5,9 +5,9 @@ import { Box, Typography } from "@mui/material";
 
 function Games() {
     const navigation = [
-        { id: 1, title: "Tasks-board", image: '/static/home/sliders-bg.jpg', path: "/sliders" },
-        { id: 2, title: "Aim Game", image: '/static/home/mini-games-bg.webp', path: "/card-slider" },
-        { id: 3, title: "Cursor Board", image: '/static/home/mini-games-bg.webp', path: "/double-slider" },
+        { id: 1, title: "Tasks-board", image: '/static/home/sliders-bg.jpg', path: "/games/dragdrop" },
+        { id: 2, title: "Aim Game", image: '/static/home/mini-games-bg.webp', path: "/games/aimgame" },
+        { id: 3, title: "Cursor Board", image: '/static/home/mini-games-bg.webp', path: "/games/cursorboard" },
     ]
 
     return (
