@@ -11,11 +11,9 @@ const AimGame = () => {
         { id: 5, time: 50 },
     ]
 
-    const [time, setTime] = useState(0)
-    const [visibleTime, setVisibleTime] = useState('00:00')
+    const [globalTime, setGlobalTime] = useState(20)
+    const [visibleTime, setVisibleTime] = useState(`00:00`)
     const [score, setScore] = useState(0)
-    const [numCicles, setnumCicles] = useState(0)
-
 
     const [welcomeScreenActive, setWelcomeScreenActive] = useState(false)
     const [timeScreenActive, setTimeScreenActive] = useState(false)
@@ -25,18 +23,22 @@ const AimGame = () => {
 
 
 
-    function startGame() {
-        setInterval(decreaseTime, 1000);
-        setTime(time);
+    function startGame(time: number) {
+        setGlobalTime(time)
+        createRandomCircle()
+        setInterval(() => {
+            console.log('work')
+            decreaseTime()
+        }, 1000);
     }
 
     function decreaseTime() {
-        if (time === 0) {
-            finishGame();
+        if (globalTime === 0) {
+            finishGame()
         } else {
-            setTime(time - 1)
-            if (time < 10) {
-                setVisibleTime(`0${time}`)
+            setGlobalTime(globalTime => globalTime - 1)
+            if (globalTime < 10) {
+                setVisibleTime(globalTime => `00:0${globalTime}`)
                 timeEl.current.style.color = 'red'
             }
         }
@@ -44,40 +46,43 @@ const AimGame = () => {
 
 
     function finishGame() {
-        // board.innerHTML = `<h1>Ваш счет: <span class="primary">${score}</span></h1><br>`;
-        // board.innerHTML += '<a href="" class="start">Заново</a>';
+        board.current.innerHTML = `<h1>Ваш счет: <span class="primary">${score}</span></h1><br>`;
+        board.current.innerHTML += '<a href="" class="start">Заново</a>';
         // timeEl.parentElement.style.opacity = '0';
     }
 
-    const ifGameStart = () => {
-        if (time > 0) {
-            let response = []
-            let circleStyles={
-                
-            }
-            const temp = <div className={styles.circle} style=(`padding`)
-            ></div>
-            response.push(temp)
-            return response
-        }
-
-        return ''
-    }
 
     function createRandomCircle() {
         const circle = document.createElement('div');
         const size = `${getRandomInt()}px`;
+
+        circle.style.position = 'absolute'
+        circle.style.background = ' linear-gradient(90deg, #16D9E3 0%, #30C7EC 47%, #46AEF7 100%)'
+        circle.style.borderRadius = '50%'
+        circle.style.cursor = 'pointer'
+        circle.style.transition = 'all 1s linear'
+
         circle.classList.add('circle');
-        circle.style.left = `${getRandomInt(3, 95)}%`; // x
-        circle.style.top = `${getRandomInt(5, 95)}%`; // y
+        const x = circle.style.left = `${getRandomInt(3, 95)}%`;
+        const y = circle.style.top = `${getRandomInt(5, 95)}%`;
 
         circle.style.width = size;
         circle.style.height = size;
+
+
         setColor(circle);
+        circle.addEventListener('click', event => {
+            setScore(score + 1)
+            createRandomCircle();
+            circle.remove()
+
+        })
         board.current.append(circle);
         setInterval(fly, 300, circle)
         setInterval(setColor, 800, circle)
     }
+
+
     function setColor(elem: HTMLDivElement) {
         let r = getRandomInt(0, 255), g = getRandomInt(0, 255), b = getRandomInt(0, 255);
         let color = `rgb(${r},${g},${b})`;
@@ -113,14 +118,13 @@ const AimGame = () => {
                 <ul className={styles.timeList}>
                     {gameTime.map(({ id, time }) => (
                         <>
-                            <li key={id}>
+                            <li key={id}
+                                onClick={() => {
+                                    startGame(time)
+                                    setTimeScreenActive(!timeScreenActive)
+                                }}>
                                 <button
                                     className={styles.timeBtn}
-                                    data-time={time}
-                                    onClick={() => {
-                                        startGame()
-                                        setTimeScreenActive(!timeScreenActive)
-                                    }}
                                 >
                                     {time} сек
                                 </button>
@@ -133,9 +137,10 @@ const AimGame = () => {
             <div className={styles.screen}>
                 <h3 className={styles.screenTitle}>Осталось:
                     <span ref={timeEl} >{visibleTime}</span>
+                    <span >{globalTime}</span>
                 </h3>
                 <div ref={board} className={styles.board}>
-                    {ifGameStart()}
+
                 </div>
             </div>
         </section>
@@ -147,13 +152,6 @@ export default AimGame
 
 
 
-// const startBtn = document.querySelector('#start');
-// const screens = document.querySelectorAll('.screen');
-// const timeList = document.querySelector('#time-list');
-// const timeEl = document.querySelector('#time');
-// const board = document.querySelector('#board');
-// let time = 0;
-// let score = 0;
 
 
 // startBtn.addEventListener('click', (event) => {
