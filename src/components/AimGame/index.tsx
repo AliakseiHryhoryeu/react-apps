@@ -3,7 +3,7 @@ import classNames from 'classnames'
 
 import styles from 'src/styles/AimGame.module.scss'
 
-const AimGame = () => {
+export default function AimGame() {
 	const gameTime = [
 		{ id: 1, time: 10 },
 		{ id: 2, time: 20 },
@@ -166,5 +166,3 @@ const AimGame = () => {
 		</section>
 	)
 }
-
-export default AimGame

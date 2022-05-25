@@ -1,8 +1,8 @@
-import React, { FC, useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 
 import styles from 'src/styles/CursorBoard.module.scss'
 
-const CursorBoard: FC = () => {
+export default function CursorBoard() {
 	const board = useRef(document.createElement('div'))
 	const container = useRef(document.createElement('div'))
 	const squareArr = useRef([document.createElement('div')])
@@ -71,5 +71,3 @@ const CursorBoard: FC = () => {
 		</>
 	)
 }
-
-export default CursorBoard

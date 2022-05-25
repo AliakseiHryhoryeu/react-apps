@@ -1,12 +1,12 @@
-import React, { useState, useRef, FC, useEffect } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import React, { useState, useRef, useEffect } from 'react'
 import { faArrowDown, faArrowUp } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import classNames from 'classnames'
 
 import styles from 'src/styles/DoubleSlider.module.scss'
 import slides from './slides.json'
 
-const DoubleSlider: FC = () => {
+export default function DoubleSlider() {
 	const mainBlock = useRef<HTMLDivElement>(null)
 	const getWindowHeight = () => {
 		if (mainBlock.current !== null) {
@@ -96,5 +96,3 @@ const DoubleSlider: FC = () => {
 		</div>
 	)
 }
-
-export default DoubleSlider

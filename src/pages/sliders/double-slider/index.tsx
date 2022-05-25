@@ -1,14 +1,12 @@
-import React, { FC } from 'react'
+import React from 'react'
 import dynamic from 'next/dynamic'
 
-const DoubleSliderPage: FC = () => {
-	const DoubSlider = dynamic(
-		() => import('../../../components/DoubleSlider/index'),
-		{
-			ssr: false,
-		}
+const DoubleSliderPage = () => {
+	const DynamicComponent = dynamic(
+		() => import('src/components/DoubleSlider/index'),
+		{ ssr: false }
 	)
-	return <DoubSlider />
+	return <DynamicComponent />
 }
 
 export default DoubleSliderPage
