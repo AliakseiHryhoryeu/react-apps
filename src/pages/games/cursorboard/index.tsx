@@ -1,10 +1,13 @@
-import React, {FC} from 'react'
+import React, { FC } from 'react'
 import dynamic from 'next/dynamic'
 
-const CursorBoardPage:FC = () => {
-  const CursorBoard = dynamic(() => import('src/components/CursorBoard'), { ssr: false })
+const CursorBoardPage: FC = () => {
+	const CursorBoard = dynamic(
+		() => import('../../../components/CursorBoard/index'),
+		{ ssr: false }
+	)
 
-  return <CursorBoard />
+	return <CursorBoard />
 }
 
 export default CursorBoardPage
