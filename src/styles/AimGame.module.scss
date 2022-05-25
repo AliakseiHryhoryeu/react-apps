@@ -1,145 +1,156 @@
-
 .gameContent {
-  color: #fff;
-  font-family: 'Khula', sans-serif;
-  height: 100vh;
-  overflow: hidden;
-  margin: 0;
-  text-align: center;
+	color: #fff;
+	font-family: 'Khula', sans-serif;
+	height: 100vh;
+	overflow: hidden;
+	margin: 0;
+	text-align: center;
 }
 
-.displayNone{
-  display: none;
+.displayNone {
+	display: none;
 }
 
 .start {
-  font-size: 1.5rem;
-  color: #fff;
-  text-decoration: none;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
-
+	font-size: 1.5rem;
+	color: #fff;
+	text-decoration: none;
+	-webkit-transition: 0.2s;
+	transition: 0.2s;
+	cursor: pointer;
 }
 
-.start:hover{
-  color: #FF185B;
-  text-shadow: 0 0 10px #770303;
+.start:hover {
+	color: #ff185b;
+	text-shadow: 0 0 10px #770303;
 }
 
 .title {
-  line-height: 1.4;
-  font-size: 4rem;
+	line-height: 1.4;
+	font-size: 4rem;
 }
 
 .screen {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  height: 100vh;
-  width: 100vw;
-  -webkit-transition: margin 0.5s ease-out;
-  transition: margin 0.5s ease-out;
-  background: -webkit-gradient(linear, left top, right top, from(#29323C), to(#485563));
-  background: linear-gradient(90deg, #29323C 0%, #485563 100%);
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	height: 100vh;
+	width: 100vw;
+	-webkit-transition: margin 0.5s ease-out;
+	transition: margin 0.5s ease-out;
+	background: -webkit-gradient(
+		linear,
+		left top,
+		right top,
+		from(#29323c),
+		to(#485563)
+	);
+	background: linear-gradient(90deg, #29323c 0%, #485563 100%);
 }
-.screenTitle{
-  margin-bottom: 20px;
-  span{
-    margin-left: 5px;
-  }
+.screenTitle {
+	margin-bottom: 20px;
+	span {
+		margin-left: 5px;
+	}
 }
 
-.screen.up{
-  margin-top: -100vh;
-
+.screen.up {
+	margin-top: -100vh;
 }
-.colorRed{
-  color:red;
+.colorRed {
+	color: red;
 }
 
 .timeList {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  list-style: none;
-  padding: 0;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	list-style: none;
+	padding: 0;
 }
 
 .timeList li {
-  margin: 10px;
+	margin: 10px;
 }
 
 .timeBtn {
-  background-color: transparent;
-  border: 2px solid #C0C0C0;
-  color: #fff;
-  cursor: pointer;
-  font-family: inherit;
-  padding: .5rem 1rem;
-  font-size: 1.5rem;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
+	background-color: transparent;
+	border: 2px solid #c0c0c0;
+	color: #fff;
+	cursor: pointer;
+	font-family: inherit;
+	padding: 0.5rem 1rem;
+	font-size: 1.5rem;
+	-webkit-transition: 0.2s;
+	transition: 0.2s;
 }
 
 .timeBtn:hover {
-  border: 2px solid #FF185B;
-  color: #FF185B;
+	border: 2px solid #ff185b;
+	color: #ff185b;
 }
 
 .hide {
-  opacity: 0;
+	opacity: 0;
 }
 
 .primary {
-  color: #FF185B;
+	color: #ff185b;
 }
 
 .board {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  position: relative;
-  width: 500px;
-  height: 500px;
-  background: linear-gradient(118.38deg, #29323C -4.6%, #20262D 200.44%);
-  -webkit-box-shadow: 0px 0px 20px #6805be, 0px 0px 40px #6805be;
-          box-shadow: 0px 0px 20px #6805be, 0px 0px 40px #6805be;
-  border-radius: 30px;
-  overflow: hidden;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	position: relative;
+	width: 500px;
+	height: 500px;
+	background: linear-gradient(118.38deg, #29323c -4.6%, #20262d 200.44%);
+	-webkit-box-shadow: 0px 0px 20px #6805be, 0px 0px 40px #6805be;
+	box-shadow: 0px 0px 20px #6805be, 0px 0px 40px #6805be;
+	border-radius: 30px;
+	overflow: hidden;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
 }
 
 .circle {
-  background: -webkit-gradient(linear, left top, right top, from(#16D9E3), color-stop(47%, #30C7EC), to(#46AEF7));
-  background: linear-gradient(90deg, #16D9E3 0%, #30C7EC 47%, #46AEF7 100%);
-  position: absolute;
-  border-radius: 50%;
-  cursor: pointer;
-  -webkit-transition: all 1s linear;
-  transition: all 1s linear;
-  cursor: pointer;
+	background: -webkit-gradient(
+		linear,
+		left top,
+		right top,
+		from(#16d9e3),
+		color-stop(47%, #30c7ec),
+		to(#46aef7)
+	);
+	background: linear-gradient(90deg, #16d9e3 0%, #30c7ec 47%, #46aef7 100%);
+	position: absolute;
+	border-radius: 50%;
+	cursor: pointer;
+	-webkit-transition: all 1s linear;
+	transition: all 1s linear;
+	cursor: pointer;
 }

@@ -1,16 +1,17 @@
 ## React Sliders
 
-+ ReactJS
-+ Redux
-+ NextJS
-+ TypeScript
-+ MaterialUI
-+ Figma
+- ReactJS
+- NextJS
+- MaterialUI
+- TypeScript
+- Figma
 
 ## Web site
-https://react-sliders-rose.vercel.app/
+
+https://react-apps-rose.vercel.app/
 
 ## Figma
+
 https://www.figma.com/file/KEi1fudDOGDrT7sz3QhEKF
 
-![react-mini-apps](/preview.png)
+![react-mini-apps](/preview.jpg)
