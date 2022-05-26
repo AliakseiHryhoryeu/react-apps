@@ -8,7 +8,7 @@
 
 ## Web site
 
-https://react-apps-rose.vercel.app/
+https://react-apps-gamma.vercel.app/
 
 ## Figma
 
