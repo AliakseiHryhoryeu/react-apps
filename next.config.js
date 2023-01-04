@@ -13,6 +13,4 @@ module.exports = withBundleAnalyzer({
 	reactStrictMode: true,
 })
 
-module.exports = withImages({
-	inlineImageLimit: false,
-})
+module.exports = withImages()
